@@ -1,0 +1,16 @@
+I've only ecountered this bug with my current laptop.
+The way it works is the following, after doing an install of any linux
+distribution, and booting into the installed linux, my system will go to
+sleep, after hitting any kew it will wake up for 5 seconds and then go to
+sleep again and so on.
+I currently have no clue on why this happens, as the live enviroments work
+completly fine.
+
+The fix for this is quite simple, just before booting into the install,
+either in the live enviroment or the chroot in case of no live enviroment,
+you will have to modify the following file:
+/etc/systemd/logind.conf
+
+In this file you have to set anything that contains the word "lid" to ignore,
+don't forget to uncomment the lines, after this you can boot the linux 
+normally.
