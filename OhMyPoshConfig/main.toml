@@ -1,0 +1,111 @@
+#"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 2
+console_title_template = '{{.Shell}} terminal'
+
+#First Line Left Side
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+#Arch Linux Logo
+[[blocks.segments]]
+type = "text"
+style = "powerline"
+foreground = "#ffffff"
+background = "transparent"
+template = "󰣇 "
+
+#Hostname
+[[blocks.segments]]
+type = "session"
+style = "powerline"
+foreground = "blue"
+background = "transparent"
+template = "<b>{{.HostName}} 󰑃</b> "
+
+#Folder path
+[[blocks.segments]]
+type = "path"
+style = "powerline"
+powerline_symbol = ""
+foreground = "gray"
+background = "transparent"
+template = "{{ .Path }} "
+
+[blocks.segments.properties]
+style = "agnoster_short"
+maxdepth = 3
+home_icon = "\uf015"
+"folder_icon" = "\uf115"
+"folder_separator_icon" = " / "
+
+#Git config based on Dreams of Autonomy but keeping the icons
+[[blocks.segments]]
+type = "git"
+style = "plain"
+foreground = "green"
+background = "transparent"
+template = 'on {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+[blocks.segments.properties]
+commit_icon = "@"
+fetch_status = true
+fetch_upstream_icon = true
+
+#First line Right Side
+[[blocks]]
+type = "prompt"
+alignment = "right"
+
+#Time it took to perform an action longer than 5 seconds.
+[[blocks.segments]]
+type = "executiontime"
+style = "powerline"
+powerline_symbol = ""
+foreground = "yellow"
+background = "transparent"
+template = " {{.FormattedMs}} \uf017"
+[block.segments.properties]
+treshold = 5
+style = "round"
+always_enabled = true
+
+#Second Line Left Side
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+
+#Simple indicator of where are you typing
+[[blocks.segments]]
+type = "text"
+style = "plain"
+foreground = "magenta"
+background = "transparent"
+template = "❯"
+
+#Second Line Right Side
+[[blocks]]
+type = "rprompt"
+alignment = "right"
+
+#Tick or cross from P10K with changing colors
+[[blocks.segments]]
+type = "text"
+style = "plain"
+foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}green{{end}}",
+]
+background = "transparent"
+template = "{{if gt .Code 0}}✘{{ else }}✔{{ end }}"
+
+#Transient prompt
+[transient_prompt]
+foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}green{{end}}",
+]
+background = "transparent"
+template = "❯❯ "
