@@ -6,6 +6,7 @@ Welcome to **MyLinuxSettings**! This repository is a comprehensive collection of
 
 - **Device:** Samsung Galaxy Book 2
 - **Operating Systems:** Dual booting Windows 11 and Arch Linux
+![alt text](https://raw.githubusercontent.com/DKuba4/MyLinuxSettings/main/neofetch.png)
 
 
 ## Contents
