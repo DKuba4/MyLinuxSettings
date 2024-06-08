@@ -7,6 +7,7 @@ Welcome to **MyLinuxSettings**! This repository is a comprehensive collection of
 - **Device:** Samsung Galaxy Book 2
 - **Operating Systems:** Dual booting Windows 11 and Arch Linux
 
+
 ## Contents
 
 - **Fixes:** Solutions to common and uncommon issues encountered on my system.
